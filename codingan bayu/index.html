@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sidang Praktik Kerja Lapangan</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+/* ===== OPENING ANIMATION ===== */
+#opening {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #1a0033, #6a00f4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    overflow: hidden;
+    transition: 1s;
+}
+
+#opening::before {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50%;
+    filter: blur(120px);
+    animation: floatGlow 5s infinite alternate;
+}
+
+@keyframes floatGlow {
+    from { transform: translateY(-30px); }
+    to { transform: translateY(30px); }
+}
+
+.opening-content {
+    text-align: center;
+    color: white;
+    animation: zoomIn 1.5s ease;
+}
+
+.opening-title {
+    font-size: 50px;
+    letter-spacing: 3px;
+    background: linear-gradient(90deg, gold, white);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.opening-subtitle {
+    margin: 15px 0 25px;
+    font-size: 20px;
+    opacity: 0.9;
+}
+
+.opening-content button {
+    padding: 14px 35px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    background: gold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.opening-content button:hover {
+    transform: scale(1.1);
+    background: white;
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+
+:root {
+    --primary: #36013F;
+    --secondary: #9D00FF;
+    --accent: hsl(61, 100%, 52%);
+    --dark: #FFFF00;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(120deg, #560591, hsl(253, 96%, 17%));
+    color: #000000;
+}
+
+
+
+/* ===== HERO ===== */
+
+.hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: rgb(244, 242, 247);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.hero img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid rgb(255, 255, 0);
+    margin-bottom: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.hero h1 {
+    font-size: 42px;
+    font-weight: 700;
+}
+
+.hero p {
+    margin-top: 10px;
+    font-size: 18px;
+    opacity: .9;
+}
+
+.heros img:not(.foto-biodata) {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid rgb(0, 0, 128);
+    margin-bottom: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== NAV ===== */
+nav {
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,.85);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    box-shadow: 0 5px 15px rgba(0,0,0,.1);
+}
+
+/* ===== NAV ===== */
+nav {
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,.85);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    box-shadow: 0 5px 15px rgba(0,0,0,.1);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+nav ul li a {
+    padding: 18px 25px;
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+nav ul li a:hover {
+    color: var(--secondary);
+}
+
+/* ===== SECTION ===== */
+section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 90px 20px;
+}
+
+section h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 50px;
+    background: linear-gradient(90deg, #fff, gold);
+    -webkit-background-clip: text;
+    color: transparent;
+    letter-spacing: 1px;
+}
+
+
+/* ===== CARD ===== */
+.card {
+    background: rgb(255, 255, 0);
+    backdrop-filter: blur(10px);
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,.12);
+    animation: fadeUp 1s ease;
+}
+
+.card ul {
+    margin-left: 20px;
+}
+
+.card ul li {
+    margin-bottom: 12px;
+    font-size: 17px;
+}
+
+/* ===== GALERI ===== */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 25px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.2);
+    transition: transform .4s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: var(--dark);
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 30px;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 32px;
+    }
+}
+
+.foto-dua {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* jarak antar foto */
+    margin-top: 20px;
+}
+
+.foto-dua img {
+    width: 400px; /* ukuran tidak terlalu besar */
+    height: 350px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,.3);
+    transition: .3s;
+}
+
+.foto-dua img:hover {
+    transform: scale(1.05);
+}
+
+
+/* ===== animasi terbaru ===== */
+/* ===== CARD ANIMATION SCROLL ===== */
+.card {
+    opacity: 0;
+    transform: translateY(60px) scale(0.97);
+    transition: all 0.9s ease;
+}
+
+/* Saat aktif (muncul) */
+.card.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* ===== CARD HOVER EFFECT ===== */
+.card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 30px 60px rgba(0,0,0,.25);
+}
+
+/* Efek glow mewah */
+.card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: linear-gradient(120deg, gold, transparent);
+    opacity: 0;
+    transition: .4s;
+    pointer-events: none;
+}
+
+.card:hover::after {
+    opacity: .15;
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+}
+
+
+.card:nth-child(1) { transition-delay: .1s; }
+.card:nth-child(2) { transition-delay: .2s; }
+.card:nth-child(3) { transition-delay: .3s; }
+
+
+/* ===== SECTION COLOR ANIMATION ===== */
+section {
+    opacity: 0;
+    transform: translateY(80px);
+    transition: all 1s ease;
+    position: relative;
+}
+
+/* Aktif saat muncul */
+section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== WARNA TIAP SECTION ===== */
+
+/* Pendahuluan - Biru */
+#pendahuluan.show::before {
+    background: radial-gradient(circle, rgba(0,123,255,0.25), transparent 70%);
+}
+
+/* Profil - Ungu */
+#profil.show::before {
+    background: radial-gradient(circle, rgba(255,60,60,0.25), transparent 70%);
+}
+
+/* Penjelasan PKL - Hijau */
+#Penjelasan\ Kegiatan\ PKL.show::before {
+    background: radial-gradient(circle, rgba(0,123,255,0.25), transparent 70%);
+}
+
+/* Dokumentasi - Orange */
+#Dokumentasi\ Kegiatan\ PKL.show::before {
+    background: radial-gradient(circle, rgba(255,60,60,0.25), transparent 70%);
+}
+
+/* Kesimpulan - Merah */
+#kesimpulan.show::before {
+    background: radial-gradient(circle, rgba(255,60,60,0.25), transparent 70%);
+}
+
+/* Biodata - Kuning */
+#Biodata.show::before {
+    background: radial-gradient(circle, rgba(255,60,60,0.25), transparent 70%);
+}
+
+/* Efek cahaya */
+section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 30px;
+    opacity: 0;
+    transition: opacity 1s ease;
+    pointer-events: none;
+}
+
+section.show::before {
+    opacity: 1;
+}
+
+
+/* ===== RUNNING COLOR TEXT ===== */
+.hero h1 {
+    font-size: 42px;
+    font-weight: 800;
+
+    background: linear-gradient(
+        270deg,
+        white,
+        yellow,
+        white
+    );
+    background-size: 600% 600%;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: textRun 3s linear infinite;
+
+}
+
+
+/* Animasi warna berjalan */
+@keyframes textRun {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.hero h1 {
+    text-shadow: 0 0 25px rgba(255,255,255,0.35);
+}
+
+
+/* ===== LIGHTBOX ===== */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+    opacity: 0;
+    pointer-events: none;
+    transition: .4s ease;
+}
+
+.lightbox.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 85%;
+    border-radius: 15px;
+    box-shadow: 0 30px 60px rgba(0,0,0,.6);
+    animation: zoomFoto .4s ease;
+}
+
+@keyframes zoomFoto {
+    from {
+        transform: scale(.7);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* tombol close */
+.lightbox span {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+
+}
+
+
+/* tombol next prev */
+.lightbox .nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    font-size: 50px;
+    padding: 10px 18px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: .3s;
+    user-select: none;
+}
+
+.lightbox .nav:hover {
+    background: rgba(255,255,255,0.4);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.lightbox .prev {
+    left: 40px;
+}
+
+.lightbox .next {
+    right: 40px;
+}
+
+/* close button */
+.lightbox .close {
+    position: absolute;
+    top: 25px;
+    right: 40px;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+
+/* ===== DROPDOWN SUB MENU ===== */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    width: 260px;
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,.25);
+    opacity: 0;
+    pointer-events: none;
+    transition: .4s ease;
+    text-align: center;
+    z-index: 9999;
+}
+
+/* tampil */
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(10px);
+}
+
+/* foto profil */
+.dropdown-menu img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid gold;
+    margin-bottom: 10px;
+}
+
+/* nama */
+.dropdown-menu h4 {
+    margin: 5px 0;
+    font-size: 18px;
+    color: #36013F;
+}
+
+/* subtitle */
+.dropdown-menu p {
+    font-size: 13px;
+    opacity: .7;
+    margin-bottom: 15px;
+}
+
+/* link menu */
+.dropdown-menu a {
+    display: block;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #36013F;
+    transition: .3s;
+}
+
+.dropdown-menu a:hover {
+    background: gold;
+    color: black;
+}
+
+
+/* ===== FOTO BIODATA KOTAK SUDUT TUMPUL ===== */
+.foto-biodata {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+
+    border-radius: 22px;              /* sudut tumpul */
+    border: 5px solid #9D00FF;        /* ungu elegan */
+    
+    box-shadow: 
+        0 15px 35px rgba(157, 0, 255, 0.45),
+        inset 0 0 0 2px rgba(255,255,255,0.15);
+
+    transition: .35s ease;
+}
+
+/* efek hover premium */
+.foto-biodata:hover {
+    transform: scale(1.06);
+    box-shadow: 
+        0 25px 55px rgba(157, 0, 255, 0.65);
+}
+
+
+</style>
+
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+    <div>
+        <img src="foto-saya.jpg" alt="Foto Siswa">
+        <h1>Sidang Praktik Kerja Lapangan</h1>
+        <p>Bayu Prasetyo Utomo • XII TKJ • SMK MASTER INDONESIA</p>
+        <p>Priode PKL 01 Juli 2025 - 31 Desember 2025</p>
+    </div>
+</div>
+
+<!-- NAV -->
+<nav>
+<ul>
+
+    <!-- SUB MENU PROFIL -->
+    <li class="dropdown">
+        <a href="#">Profil Saya ▾</a>
+
+        <div class="dropdown-menu">
+            <img src="foto-saya.jpg" alt="Foto Profil">
+            <h4>Bayu Prasetyo Utomo</h4>
+            <p>XII TKJ • SMK MASTER INDONESIA</p>
+
+            <a href="#pendahuluan">Pendahuluan</a>
+            <a href="#profil">Profil Perusahaan</a>
+            <a href="#Penjelasan Kegiatan PKL">Penjelasan PKL</a>
+            <a href="#Dokumentasi Kegiatan PKL">Dokumentasi</a>
+            <a href="#kesimpulan">Kesimpulan</a>
+            <a href="#Biodata">Biodata</a>
+        </div>
+    </li>
+
+</ul>
+</nav>
+
+
+<!-- PENDAHULUAN -->
+<section id="pendahuluan">
+<h2>Pendahuluan</h2>
+<div class="card">
+    <p>
+        Praktik Kerja Lapangan (PKL) merupakan salah satu program pembelajaran yang 
+        bertujuan untuk memberikan pengalaman kerja secara langsung kepada siswa di dunia industri. 
+        Melalui kegiatan PKL, siswa dapat mengaplikasikan pengetahuan dan keterampilan yang diperoleh di sekolah serta memahami kondisi dan budaya kerja yang sesungguhnya.
+    </p>
+</div>
+</section>
+
+<!-- PROFIL -->
+<section id="profil">
+<h2>Profil Perusahaan</h2>
+<div class="card">
+
+    <h3 style="color: rgb(0, 0, 0); text-align:center;">Profil Perusahaan</h3>
+
+    <p>
+        PT. GGCLink Prima Nusantara atau yang sudah berganti nama sejak 1
+November 2024 menjadi PT. GGCLink RetaiL Solusindo, yang berada di JL SWADAYA 
+NO 1 KP CIKEMPONG RT05 RW05 PAKANSARI CIBINONG KAB BOGOR JAWA BARAT Kode Pos 16915
+PT ini bergerak di layanan terintegrasi penyedia sumber daya serta pengelolaan yang berfokus
+pada bidang IT (informasi dan teknologi). PT. GGCLink Retail Solusindo tidak
+hanya menyediakan layanan internet tetapi, terdapat berbagai aksesoris serta
+peralatan berbasis fiber optic.
+    </p>
+
+    <div class="foto-dua" style="margin-bottom: 40px;">
+    <img src="fotoperusahaan2.jpg">
+    <img src="fotoperusahaandalem.jpg">
+</div>
+
+<div style="text-align: center; margin-top: 40px; margin-bottom: 40px;">
+    <img src="bennerggc.png" style="border-radius: 15px;" width="700" height="300">
+</div>
+
+
+</div>
+</section>
+
+
+
+
+
+</ul>
+</div>
+</section>
+
+<!-- Penjelasan Kegiatan PKL -->
+<section id="Penjelasan Kegiatan PKL">
+<h2>Penjelasan Kegiatan PKL</h2>
+<div class="card">
+    <section id="Penjelasan Kegiatan PKL">
+        <h3><p style="color: rgb(0, 0, 0);">QUALITY CONTROL ONT MODEM</p></h3>
+
+    <p>
+        <i>QULITY CONTROL</i> ONT Modem berfungsi untuk memisahkan perangkat yang dapat
+bekerja dengan baik atau dalam kondisi rusak. Setelah semua tahap pada QC
+selesai, modem yang telah lolos akan diberikan label, ada beberapa label yaitu
+label garansi berfungsi untuk kepentingan pelanggan jika ingin melakukan
+service atau retur. Selain label garansi, ada pula label hologram untuk keaslian
+produk, dan juga label postel (label izin yang berbeda-beda sesuai tipe
+perangkat).
+    </p>
+    </section>
+
+    <!-- FOTO KANAN KIRI -->
+    <div class="foto-dua">
+        <img src="qualitycontrol.jpg" alt="qualitycontrol ">
+        <img src="qualitycontrol2.jpg" alt="qualitycontrol2 ">
+    </div>
+
+</section>
+
+<section id="Penjelasan Kegiatan PKL">
+<div class="card">
+    <section id="Penjelasan Kegiatan PKL">
+        <h3><p style="color: rgb(0, 0, 0);">Packing ONT dan Aksesoris Jaringan</p></h3>
+    <p>
+        Packing ONT
+dan aksesoris jaringan berfungsi untuk melindungi ont dan barang lainnya
+dari kerusakan saat dalam perjalanan menuju rumah pelanggan dan agar ONT
+aman dapat digunakan dengan baik tidak ada kerusakan dan kendala lainnya.
+    </p>
+    </section>
+    <!-- FOTO KANAN KIRI -->
+    <div class="foto-dua">
+        <img src="tempatpacking.jpg" alt="tempatpacking ">
+        <img src="tempatpacking3.jpg" alt="tempatpacking3 ">
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- DOKUMENTASI KEGIATAN PKL -->
+<section id="Dokumentasi Kegiatan PKL">
+<h2>Dokumentasi Kegiatan PKL</h2>
+<div class="gallery">
+    <img src="kegiatan1.jpg" class="foto-doc">
+    <img src="kegiatan2.jpg" class="foto-doc">
+    <img src="kegiatan3.jpg" class="foto-doc">
+    <img src="kegiatan444.jpg" class="foto-doc">
+    <img src="kegiatan16.jpg" class="foto-doc">
+    <img src="kegiatan6.jpg" class="foto-doc">
+    <img src="kegiatan777.jpg" class="foto-doc">
+    <img src="kegiatan88.jpg" class="foto-doc">
+    <img src="kegiatan9.jpg" class="foto-doc">
+    <img src="kegiatan10.jpg" class="foto-doc">
+    <img src="kegiatan11.jpg" class="foto-doc">
+    <img src="kegiatan12.jpg" class="foto-doc">
+    <img src="kegiatan13.jpg" class="foto-doc">
+    <img src="kegiatan144.jpg" class="foto-doc">
+    <img src="kegiatan15.jpg" class="foto-doc">
+</div>
+
+</section>
+
+<!-- KESIMPULAN -->
+<section id="kesimpulan">
+<h2>Kesimpulan</h2>
+<div class="card">
+    <p>
+        Setelah kami melaksanakan praktik kerja lapangan (PKL) di PT.
+GGCLink Retail Solusindo selama kurang lebih 6 bulan, kami mendapat
+banyak sekali ilmu dan pengalaman kerja disana. Melalui kegiatan PKL ini,
+kami dapat mengetahui bagaimana dunia kerja yang sesungguhnya. Dengan
+kejujuran dan tanggung jawab, kami juga dapat menilai kemampuan diri
+sendiri saat melaksanakan pekerjaan yang diberikan.
+    </p>
+</div>
+</section>
+
+<!-- PROFIL -->
+<section id="Biodata">
+<h2>Biodata</h2>
+<div class="card">
+<ul>
+    <li><b>Nama:</b> Bayu Prasetyo Utomo</li>
+    <li><b>Tempat dan Tanggal Lahir:</b> Jakarta, 25 April 2008</li>
+    <li><b>Kelas:</b> XII</li>
+    <li><b>Jurusan:</b> Teknik Komputer dan Jaringan</li>
+    <li><b>Hobi:</b> Berolahraga, Hiking, dan Konten Kreator</li>
+    <div style="text-align: center;">
+<div class="heros">
+    <div>
+        <img src="biodatadiri3.jpg" alt="Foto Siswa" class="foto-biodata">
+     
+</div>
+
+
+
+</ul>
+</div>
+</section>
+
+<footer>
+<p>© Bayu Prasetyo Utomo XII TKJ Presentasi Sidang PKL</p>
+</footer>
+
+<script>
+const cards = document.querySelectorAll(".card");
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+}, {
+    threshold: 0.15
+});
+
+cards.forEach(card => observer.observe(card));
+</script>
+
+
+<script>
+const sections = document.querySelectorAll("section");
+
+const sectionObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+}, {
+    threshold: 0.2
+});
+
+sections.forEach(section => sectionObserver.observe(section));
+</script>
+
+
+<div class="lightbox" id="lightbox">
+    <span class="close">&times;</span>
+
+    <button class="nav prev">&#10094;</button>
+    <img id="lightbox-img">
+    <button class="nav next">&#10095;</button>
+</div>
+
+
+
+<script>
+const fotos = document.querySelectorAll(".foto-doc");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const closeBtn = document.querySelector(".close");
+const nextBtn = document.querySelector(".next");
+const prevBtn = document.querySelector(".prev");
+
+let currentIndex = 0;
+
+// buka lightbox
+fotos.forEach((foto, index) => {
+    foto.addEventListener("click", () => {
+        currentIndex = index;
+        showImage();
+        lightbox.classList.add("show");
+    });
+});
+
+// tampilkan gambar
+function showImage() {
+    lightboxImg.src = fotos[currentIndex].src;
+}
+
+// next
+nextBtn.addEventListener("click", e => {
+    e.stopPropagation();
+    currentIndex = (currentIndex + 1) % fotos.length;
+    showImage();
+});
+
+// prev
+prevBtn.addEventListener("click", e => {
+    e.stopPropagation();
+    currentIndex = (currentIndex - 1 + fotos.length) % fotos.length;
+    showImage();
+});
+
+// close
+closeBtn.addEventListener("click", () => {
+    lightbox.classList.remove("show");
+});
+
+// klik area hitam tutup
+lightbox.addEventListener("click", e => {
+    if (e.target === lightbox) {
+        lightbox.classList.remove("show");
+    }
+});
+</script>
+
+
+<script>
+const dropdown = document.querySelector(".dropdown > a");
+dropdown.addEventListener("click", e => {
+    e.preventDefault();
+    dropdown.parentElement.classList.toggle("active");
+});
+</script>
+
+
+</body>
+
+
